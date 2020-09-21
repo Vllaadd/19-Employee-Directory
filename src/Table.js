@@ -41,9 +41,36 @@ const Table = ({ users }) => {
                     </tr>
                 </thead>
                 <tbody>
-
+                    {sortedUsers.map(
+                        ({
+                            location: { city, state, country, postcode },
+                            picture: { thumbnail },
+                            cell, 
+                            phone,
+                            gender,
+                            email,
+                            name: { first, last, title }
+                        }) => (
+                            <tr key={email}>
+                                <td>{title}</td>
+                        <th>{first}</th>
+                        <td>{last}</td>
+                        <td>{gender}</td>
+                        <td>{email}</td>
+                        <td>{phone}</td>
+                        <td>{city}</td>
+                        <td>{country}</td>
+                        <td>
+                            <img src={thumbnail} />
+                        </td>
+                        <td></td>
+                            </tr>
+                        )
+                    )}
                 </tbody>
             </table>
         </div>
     )
 }
+
+export default Table;
